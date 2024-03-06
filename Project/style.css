@@ -1,0 +1,27 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: sans-serif, 'Times New Roman', serif;
+    background: rgb(118, 132, 150);
+}
+
+.container{
+    width: 100%;
+    height: auto;
+}
+
+.carousel-item{
+    width: 100em;
+    height: 30em;
+
+}
+
+.navbar{
+    display: flex;
+    align-items: right;
+}
+.navbar ul li{
+    list-style: none;
+    display: inline-block;
+    margin: 0 15px;
+}
