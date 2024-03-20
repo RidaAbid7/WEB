@@ -1,8 +1,8 @@
 *{
     margin: 0px;
     padding: 0px;
-    font-family: sans-serif, 'Times New Roman', serif;
-    /* background: rgb(118, 132, 150);  #F2E0C9*/
+    font-family: 'Poppins', serif;
+    /* #F2E0C9; */
     background: #F2D8CE;
 }
 .carousel-item img{
@@ -15,10 +15,15 @@
     margin-top: 0.3em;
 }
 .logo{
-    width: 12em;
+    width: 10em;
     height: 4em;
     padding: 0%;
 }
+
+/* .dropdown{
+    background: inherit;
+} */
+
 .navbar ul li{
     list-style: none;
     display: inline-block;
@@ -53,4 +58,43 @@ h1{
 }
 #main{
     text-align: center;
+}
+.cards {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  padding: 1.5em;
+  padding-left: 4em;
+}    
+.cards .card {
+  --normal-color: #d26969; /* Define a CSS variable for normal color */
+  --hover-color: #923050;  /* Define a CSS variable for hover color */  
+  background-color: var(--normal-color); /* Use normal color variable */
+  display: flex;
+  padding: 0.5em;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  height: 200px;
+  width: 150px;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  transition: transform 400ms, background-color 400ms; /* Add transition for background-color */
+}   
+.cards .card p.tip {
+  font-size: 1em;
+  font-weight: 700;
+}    
+.cards .card p.second-text {
+  font-size: .7em;
+}   
+.cards .card:hover {
+  transform: scale(1.2, 1.2);
+  background-color: var(--hover-color); /* Change background color on hover */
+}  
+.hover {
+  transform: scale(1.2, 1.2);
+  z-index: 1;
 }
