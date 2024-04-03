@@ -1,0 +1,14 @@
+.col-sm-4{
+    display: block;
+    background-color:lavender;
+}
+.social-icon{
+    color: lightgray;
+    transition: 0.2s;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 40px;
+}
+.social-icon:hover{
+    color: darkgray;
+}
