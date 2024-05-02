@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tooltip Centered Layout</title>
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    .tooltip-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .tooltip {
+        position: relative;
+        display: inline-block;
+        cursor: pointer;
+        background-color: #282828;
+        color: #f1f1f1;
+        padding: 1em 3em;
+        border-radius: 1em;
+    }
+
+    .tooltiptext {
+        visibility: hidden;
+        width: 200px;
+        background-color: #282828;
+        color: #f1f1f1;
+        text-align: center;
+        border-radius: 5px;
+        padding: 10px;
+        position: absolute;
+        z-index: 1;
+        bottom: 125%;
+        left: 50%;
+        transform: translateX(-50%);
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+
+    .tooltip:hover .tooltiptext {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .tooltip .tooltiptext::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        border-width: 8px;
+        border-style: solid;
+        border-color: #282828 transparent transparent transparent;
+        transform: translateX(-50%);
+    }
+
+    .tooltip.left .tooltiptext {
+        left: auto;
+        right: 130%;
+        transform: translateX(50%);
+    }
+
+    .tooltip.right .tooltiptext {
+        left: 130%;
+        transform: translateX(-50%);
+    }
+</style>
+</head>
+<body>
+
+<div class="tooltip-container">
+    <div class="tooltip left">
+        Hover me (Left)
+        <div class="tooltiptext">Hello from the left!</div>
+    </div>
+    <div class="tooltip">
+        Hover me (Center)
+        <div class="tooltiptext">Hi there! </div>
+    </div>
+    <div class="tooltip right">
+        Hover me (Right)
+        <div class="tooltiptext">Greetings from the right!</div>
+    </div>
+</div>
+
+</body>
+</html>

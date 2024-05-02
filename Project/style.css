@@ -1,9 +1,11 @@
 *{
     margin: 0px;
     padding: 0px;
-    font-family: 'Poppins', serif;
-    /* #F2E0C9; */
+    font-family:  serif;
+    /* 'Poppins', */
     /* background: #F2D8CE; */
+    background: rgb(44, 43, 43);
+    color: white;
 }
 .carousel-item img{
     object-fit: cover;
@@ -97,3 +99,78 @@ h1{
   transform: scale(1.2, 1.2);
   z-index: 1;
 }
+
+footer {
+    padding: 60px 0;
+  }
+  .footer-links {
+    list-style-type: none;
+    padding: 0;
+  }
+  .footer-links li {
+    padding: 8px 0;
+  }
+  .footer-links li a {
+    color: white;
+    text-decoration: none;
+  }
+  .footer-links li a:hover {
+    text-decoration: underline;
+  }
+
+  .circle {    fill: #d26969;}
+  .circle-one{opacity: 0;}
+  .svg-stroke {
+    fill: transparent;
+    stroke-dasharray: 46.82, 93.64;
+    stroke-dashoffset: 46.82;
+    stroke: #d26969;
+    opacity: 1;
+  }
+  .svg-wrap .svg-stroke {
+    animation: stroke-start 1.6s linear, stroke-end 1.6s 0.8s linear infinite;
+  }
+  .svg-wrap .circle-one {
+    animation: dot-one 0s 0.8s, move-dot 1.6s 0.8s linear infinite;
+  }
+  .svg-wrap .circle-two,
+  .svg-wrap .circle-three {
+    animation: move-dot 1.6s 0.8s linear infinite;
+  }
+  @keyframes dot-one {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  @keyframes stroke-start {
+    50% {
+      stroke-dashoffset: 46.82;
+    }
+    100% {
+      stroke-dashoffset: 0;
+    }
+  }
+  @keyframes stroke-end {
+    50% {
+      stroke-dasharray: 46.82, 93.64;
+      stroke-dashoffset: 0;
+      transform: translateX(0);
+    }
+    100% {
+      stroke-dasharray: 0, 93.64;
+      stroke-dashoffset: -46.82;
+      transform: translateX(10px);
+    }
+  }
+  @keyframes move-dot {
+    50% {
+      transform: translateX(0);
+    }
+  
+    100% {
+      transform: translateX(10px);
+    }
+  }
