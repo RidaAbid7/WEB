@@ -1,0 +1,2 @@
+For the purpose of this assignment, term project is implemented using express. Created views include Landing/ Home page, Contact-us page and Lakes pages first item in the dropdown menu in navbar.
+Routes for these three views are created in the app-express.js file.

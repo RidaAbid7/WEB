@@ -2,7 +2,7 @@
     font-family: sans-serif, 'Times New Roman', serif;
 }
 .background {
-    background: #F2D8CE;
+    background: rgb(44, 43, 43);
     min-height: 100vh; 
     display: flex;
     justify-content: center; 

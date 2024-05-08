@@ -15,8 +15,8 @@ server.use(ejsLayouts);
 
 server.use(express.static("public"));
 
-let studentsAPIRouter = require("./routes/api/students");
-server.use(studentsAPIRouter);
+// let studentsAPIRouter = require("./routes/api/students");
+// server.use(studentsAPIRouter);
 
 server.get("/contact-us", async (req, res) => {
   res.render("contact-us");

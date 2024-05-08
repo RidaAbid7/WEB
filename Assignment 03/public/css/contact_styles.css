@@ -1,0 +1,23 @@
+.background {
+    background: #F2D8CE;
+    min-height: 100vh; 
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+}
+.form-group{
+    padding: 0.6em;
+}
+.contact-container {
+    background-color: #fff; 
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px; 
+    display: flex;
+    justify-content:space-evenly;
+}
+#contactForm{
+    margin-top: 2em;
+    padding: 10px;
+    margin-left: 30%;
+}

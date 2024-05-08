@@ -2,6 +2,7 @@ function doBindings() {
     let submitBtn = document.getElementById("submitBtn");
     submitBtn.onclick = handleFormSubmission; 
     scrolldown;
+    bindContactNavigation;
 }
 $(doBindings);
 // $(document).ready(function(){
@@ -19,11 +20,6 @@ function handleFormSubmission(event) {
     }
 }
   
-  
-
-
-
-
 function scrolldown(){
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
@@ -34,4 +30,13 @@ function scrolldown(){
             });
         });
     });
+}
+
+function bindContactNavigation() {
+    var contactLink = document.getElementById('contact-link');
+    if (contactLink) {
+        contactLink.addEventListener('click', function() {
+            window.location.href = './contact.html';
+        });
+    }
 }
