@@ -7,6 +7,7 @@
     /* background: #F2D8CE; */
     background: rgb(44, 43, 43);
     color: white;
+    /* overflow-x: hidden; */    
 }
 .carousel-item img{
     object-fit: cover;
@@ -16,6 +17,7 @@
     display: flex;
     align-items: right;
     height: 6em;
+    z-index: 2;
 }
 .logo{
     width: 10em;
@@ -57,13 +59,19 @@
 }
 .contain2{
     clear:both;
-    padding-top: 1em;
+    padding-top: 3em;
+    padding: 2em;
 }
+
+.contain3{
+  padding-top: 2em;
+}
+
 h1{
-    text-align: center;
+  text-align: center;
 }
 #main{
-    text-align: center;
+  text-align: center;
 }
 #cards-container{
   justify-content: center;
@@ -92,13 +100,15 @@ h1{
   cursor: pointer;
   transition: transform 400ms, background-color 400ms; /* Add transition for background-color */
 }   
-.cards .card p.tip {
-  font-size: 1em;
+.cards .card a.tip {
+  font-size: 1.5em;
   font-weight: 700;
+  text-decoration: inherit;
+  color: #fff;
 }    
 .cards .card p.second-text {
   padding-top: 0.2em;
-  font-size: .7em;
+  font-size: .9em;
 }   
 .cards .card:hover {
   transform: scale(1.2, 1.2);
@@ -185,70 +195,6 @@ footer {
   }
 
 
-/* .contain3{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 45em;
-  margin: 0;
-}
-  .tooltip-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-}
-.tooltip {
-    height: 45em;
-    position: relative;
-    display: inline-block;
-    cursor: pointer;
-    background-color: #282828; 
-    color: #f1f1f1; 
-    padding: 1em 3em;
-    border-radius: 1em;
-}
-.tooltiptext {
-    visibility: hidden;
-    width: 200px;
-    background-color: #282828; 
-    color: #f1f1f1; 
-    text-align: center;
-    border-radius: 5px;
-    padding: 10px;
-    position: absolute;
-    z-index: 1;
-    bottom: 125%;
-    left: 50%;
-    transform: translateX(-50%);
-    opacity: 0;
-    transition: opacity 0.3s;
-}
-.tooltip:hover .tooltiptext {
-    visibility: visible;
-    opacity: 1;
-}
-.tooltip .tooltiptext::after {
-    content: "";
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    border-width: 8px;
-    border-style: solid;
-    border-color: #282828 transparent transparent transparent;
-    transform: translateX(-50%);
-}
-.tooltip.left .tooltiptext {
-    left: auto;
-    right: 130%;
-    transform: translateX(50%);
-}
-.tooltip.right .tooltiptext {
-    left: 130%;
-    transform: translateX(-50%);
-}*/
-
-
   /* CONTACT-US CSS */
 .background {
   display: flex;
@@ -268,29 +214,87 @@ footer {
 #contactForm{
     margin-left: 30%;
 }
+
   
-  /* LAKES CSS */
-.lake-info {
+  /* LAKES & MOSQUES CSS */
+.info {
     display: flex;
     border: 3px solid white;
     border-radius: 2em;
-    padding-bottom: 3em;
+    padding-bottom: 2em;
+    padding-left: 1em;
+    height: 22em;
 }
-.lake-image {
+.landscape-image{
     flex: 1;
     padding: 20px;
 }
-.lake-image img {
+.landscape-image img {
     width: 100%;
     border-radius: 10px;
+    height: 18em;
+    filter: blur(5px); /* Initially blurred */
+    transition: filter 0.3s ease-in-out;
 }
-.lake-details {
+.details {
     flex: 2;
     padding: 20px;
 }
-.lake-details h2 {
+.details h2 {
     margin-bottom: 10px;
 }
-.lake-details p {
+.details p {
     margin-bottom: 10px;
+}
+.landscape-image img:hover {
+  filter: blur(0);
+}
+
+/* MOUNTAINS & historical_places CSS */
+.mount_histPlc-image{
+  flex: 1;
+  padding: 20px;
+  padding-top: 30px;
+}
+.mount_histPlc-image img {
+  width: 100%;
+  border-radius: 10px;
+  height: 18em;
+  transition: transform 0.3s ease-in-out;
+}
+.mount_histPlc-image img:hover {
+  /* transform: rotate(10deg); */
+  transform: scale(1.1);
+}
+
+
+/* VALLYES CSS */
+.valley-image{
+  flex: 1;
+  padding-top: 30px;
+}
+.valley-image img{
+  width: 100%;
+  border-radius: 10px;
+  height: 17.5em;
+  transition: border-color 0.3s ease-in-out;
+  border: 5px solid #7e3f3f4f; 
+}
+.valley-image img:hover {
+  border-color: white; 
+}
+
+
+/* DESERTS CSS */
+.desert-image{
+  flex: 1;
+  padding-top: 30px;
+}
+.desert-image img{
+  height: 17.5em;
+  width: 100%;
+  transition: opacity 0.3s ease-in-out;
+}
+.desert-image img:hover{
+  opacity: 0.5; /* Change opacity on hover */
 }
