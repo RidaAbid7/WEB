@@ -74,16 +74,21 @@ h1{
   text-align: center;
 }
 #cards-container{
+  display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 }
 .cards {
   display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
   gap: 30px;
   padding: 1.5em;
   padding-left: 4em;
 }    
 .cards .card {
+  width: 200px; 
+  flex: 1 1 200px;
   --normal-color: #d26969; /* Define a CSS variable for normal color */
   --hover-color: #923050;  /* Define a CSS variable for hover color */  
   background-color: var(--normal-color); 
@@ -94,11 +99,10 @@ h1{
   flex-direction: column;
   text-align: center;
   height: 300px;
-  width: 200px;
   border-radius: 10px;
   color: white;
   cursor: pointer;
-  transition: transform 400ms, background-color 400ms; /* Add transition for background-color */
+  transition: transform 400ms, background-color 400ms; 
 }   
 .cards .card a.tip {
   font-size: 1.5em;
@@ -112,11 +116,32 @@ h1{
 }   
 .cards .card:hover {
   transform: scale(1.2, 1.2);
-  background-color: var(--hover-color); /* Change background color on hover */
+  background-color: var(--hover-color); 
 }  
 .hover {
   transform: scale(1.2, 1.2);
   z-index: 1;
+}
+
+@media screen and (max-width: 768px) {
+  #cards-container {
+    padding-left: 1em;
+  }
+
+  .cards .card {
+    width: calc(50% - 20px); /* Two cards per row */
+  }
+}
+
+/* Further adjustments for smaller screens */
+@media screen and (max-width: 480px) {
+  #cards-container {
+    padding-left: 0.5em;
+  }
+
+  .cards .card {
+    width: calc(100% - 20px); /* One card per row */
+  }
 }
 
 footer {
@@ -296,5 +321,85 @@ footer {
   transition: opacity 0.3s ease-in-out;
 }
 .desert-image img:hover{
-  opacity: 0.5; /* Change opacity on hover */
+  opacity: 0.5; 
+}
+
+
+/* NEW (FORM) CSS */
+.form-container {
+  border: 1em solid #fff;
+  padding: 4em;
+  border-radius: 10px;
+  display: flex;
+  justify-content:space-evenly;
+}
+.form-box input[type="text"] {
+  width: calc(100% - 2em);
+  padding: 0.5em;
+  margin: 0.5em 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.form-box input[type="submit"] {
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 1em;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+}
+.form-box input[type="submit"]:hover {
+  background-color: #555;
+}
+
+/* CSS OF LIST.EJS  */
+#pageTitle {
+  color: white;
+  text-align: center;
+}
+.link{
+  font-size: 1em;
+}
+.link, .delete-link, .edit-link {
+  color: white;
+  text-decoration: none;
+}
+.link:hover, .delete-link:hover, .edit-link:hover {
+  text-decoration: underline;
+}
+#placesTable {
+  border: 0.8em solid #fff;
+  width: 100%;
+  border-collapse: collapse;
+}
+.table-header, .table-cell {
+  padding: 8px;
+  text-align: left;
+}
+.table-header {
+  background-color: lightgray;
+  color: black;
+}
+.table-row:hover {
+  background-color: #f5f5f5;
+}
+.pagination {
+  list-style-type: none;
+  padding-right: 4em;
+  margin-top: 20px; /* Adds some space above the pagination */
+}
+.page-item {
+  display: inline-block;
+  padding-right: 5px;
+  margin-right: 10px;
+  text-align: center; /* Aligns pagination to the right */
+  font-size: 35px; /* Increased font size for better visibility */
+}
+.delete-link {
+  color: red;
+  padding-right: 5px;
+}
+.edit-link {
+  color: green;
 }

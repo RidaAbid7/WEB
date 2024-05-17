@@ -1,6 +1,7 @@
 const express = require("express");
 let server = express();
 
+
 let ejsLayouts = require("express-ejs-layouts");
 server.use(ejsLayouts);
 
@@ -17,15 +18,14 @@ server.use(express.urlencoded());
 
 server.use("/places", require("./routes/places"));
 
+
 server.get("/", async (req, res) => {
     // res.send("HELLOOO")
     res.render("homepage");
 })
-
 server.get("/contact-us", async (req, res) => {
     res.render("contact-us");
 })
-
 server.get("/lakes", async (req, res) => {
     res.render("lakes");
 })

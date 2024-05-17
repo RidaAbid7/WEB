@@ -5,9 +5,6 @@ function doBindings() {
     bindContactNavigation;
 }
 $(doBindings);
-// $(document).ready(function(){
-//     scrolldown();
-// });
 
 function handleFormSubmission(event) {
     var name = $('#name').val();
