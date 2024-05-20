@@ -1,56 +1,59 @@
+// app.js
 const express = require("express");
-let server = express();
-
-
-let ejsLayouts = require("express-ejs-layouts");
-server.use(ejsLayouts);
-
+const app = express();
 const mongoose = require("mongoose");
-let Place = require("./models/Place")
+const ejsLayouts = require("express-ejs-layouts");
+const cookieParser = require("cookie-parser");
+const expressSession = require("express-session");
+const checkAuth = require("./middlewares/check-auth");
+const mainSiteMiddleware = require("./middlewares/main-site");
 
-let placesAPIRouter = require("./routes/api/places");
-server.use(placesAPIRouter);
+app.use(ejsLayouts);
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(cookieParser());
+app.use(expressSession({ secret: "My Secret Key", resave: false, saveUninitialized: false }));
+app.use(mainSiteMiddleware);
 
-server.use(express.static("public"));
-server.use(express.json());
-server.set("view engine", "ejs");
-server.use(express.urlencoded());
+app.use(express.static("public"));
+app.set("view engine", "ejs");
 
-server.use("/places", require("./routes/places"));
+const placesAPIRouter = require("./routes/api/places");
+app.use(placesAPIRouter);
 
+app.use("/places", require("./routes/places"));
+app.use("/", require("./routes/auth"));
 
-server.get("/", async (req, res) => {
-    // res.send("HELLOOO")
-    res.render("homepage");
+app.get("/", checkAuth, (req, res) => {
+  res.render("homepage", { user: req.session.user });
+});
+app.get("/contact-us", async (req, res) => {
+  res.render("contact-us");
 })
-server.get("/contact-us", async (req, res) => {
-    res.render("contact-us");
+app.get("/lakes", checkAuth, async (req, res) => {
+  res.render("lakes");
 })
-server.get("/lakes", async (req, res) => {
-    res.render("lakes");
+app.get("/mountains", checkAuth, async (req, res) => {
+res.render("mountains");
 })
-server.get("/mountains", async (req, res) => {
-  res.render("mountains");
+app.get("/valleys", checkAuth, async (req, res) => {
+res.render("valleys");
 })
-server.get("/valleys", async (req, res) => {
-  res.render("valleys");
+app.get("/mosques", checkAuth, async (req, res) => {
+res.render("mosques");
 })
-server.get("/mosques", async (req, res) => {
-  res.render("mosques");
+app.get("/deserts", checkAuth, async (req, res) => {
+res.render("deserts");
 })
-server.get("/deserts", async (req, res) => {
-  res.render("deserts");
-})
-server.get("/historical_places", async (req, res) => {
-  res.render("historical_places");
+app.get("/historical_places", checkAuth, async (req, res) => {
+res.render("historical_places");
 })
 
+app.listen(4000, () => {
+  console.log("app started listening at localhost:4000");
+});
 
-server.listen(4000, () => {
-    console.log("server started listening at localhost:4000");
-  });
-
-  mongoose.connect("mongodb+srv://ridaabid7:Ridaabid267@project1.tbva6z8.mongodb.net/")
+mongoose.connect("mongodb+srv://ridaabid7:Ridaabid267@project1.tbva6z8.mongodb.net/")
   .then(() => {
     console.log("DB Connected");
   })

@@ -11,10 +11,10 @@
     <title>Hidden Gems of Pakistan</title>
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark">
+<nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="/">
-            <img src="./images/logo_01.png" alt="Website Logo" class="logo">
+            <img src="/images/logo_01.png" alt="Website Logo" class="logo">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -35,11 +35,29 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="./places">API</a>
+                    <a class="nav-link" href="/places">API</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="contact-link" href="./contact-us">Contact Us</a>
+                    <a class="nav-link" id="contact-link" href="/contact-us">Contact Us</a>
                 </li>
+                <% if (typeof user !== 'undefined' && user) { %>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/logout">Logout</a>
+                    </li>
+                <% } else { %>
+                    <% if (currentPath === '/register') { %>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/login">Login</a>
+                        </li>
+                    <% } else { %>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/login">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/register">Register</a>
+                        </li>
+                    <% } %>
+                <% } %>
             </ul>
         </div>
     </div>
@@ -54,7 +72,7 @@
             <div class="col-md-4">
               <h5>Contact Us</h5>
               <ul class="footer-links">
-                <li><a href="/contact-us.ejs">Contact Form</a></li>
+                <li><a href="/contact-us">Contact Form</a></li>
                 <li>Email: info@pakistanhiddentplaces.com</li>
                 <li>Phone: +92 345 6789012</li>
                 <li>Address: 123 ABC Street, Islamabad, Pakistan</li>

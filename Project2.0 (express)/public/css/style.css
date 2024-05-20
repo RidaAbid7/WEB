@@ -340,6 +340,13 @@ footer {
   border: 1px solid #ccc;
   border-radius: 5px;
 }
+.form-box input[type="password"] {
+  width: calc(100% - 2em);
+  padding: 0.5em;
+  margin: 0.5em 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
 .form-box input[type="submit"] {
   background-color: #333;
   color: white;
