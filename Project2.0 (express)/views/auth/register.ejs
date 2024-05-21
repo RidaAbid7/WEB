@@ -1,7 +1,11 @@
 <div class="form-container">
     <h1>Register New User</h1>
     <div class="form-box">
-
+        <% if (messages.error) { %>
+            <div class="alert alert-danger">
+                <%= messages.error %>
+            </div>
+        <% } %>
         <form action="/register" method="post">
             <label for="name">Name:</label>
             <input type="text"  name="name"/> <br/>

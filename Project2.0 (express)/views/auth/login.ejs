@@ -1,6 +1,12 @@
 <div class="form-container">
     <h1>Welcome!</h1>
+    <h3></h3>
     <div class="form-box">
+        <% if (messages.error) { %>
+            <div class="alert alert-danger">
+                <%= messages.error %>
+            </div>
+        <% } %>
         <form action="/login" method="post">
             <label for="email">Email:</label>
             <input type="text"  name="email"/> <br/>

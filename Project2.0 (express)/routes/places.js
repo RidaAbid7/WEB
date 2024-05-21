@@ -3,18 +3,28 @@ let router = express.Router();
 let Place = require("../models/Place");
 
 router.get("/new", (req, res) => {
-  res.render("places/new");
+  res.render("places/new",  { messages: req.flash() });
 });
 
 router.post("/new", async (req, res) => {
-  console.log("routes -> places",req.body);
-  if(req.body.name === ''|| req.body.landscape === '' || req.body.location === '') {
-    return res.redirect("/new");
-  }
-  else{
-    let plc = new Place(req.body);
-    await plc.save();
-    return res.redirect("/places");
+  console.log("routes -> places", req.body);
+  const { name, landscape, location } = req.body;
+
+  if (!name || !landscape || !location) {
+    if (!name) req.flash("error", "Name is required.");
+    if (!landscape) req.flash("error", "Landscape is required.");
+    if (!location) req.flash("error", "Location is required.");
+    return res.redirect("/places/new");
+  } else {
+    try {
+      let plc = new Place(req.body);
+      await plc.save();
+      req.flash("success", "Place added successfully.");
+      return res.redirect("/places");
+    } catch (error) {
+      req.flash("error", "There was an error saving the place.");
+      return res.redirect("/places/new");
+    }
   }
 });
 

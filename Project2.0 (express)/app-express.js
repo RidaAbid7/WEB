@@ -3,6 +3,7 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const ejsLayouts = require("express-ejs-layouts");
+const flash = require("connect-flash");
 const cookieParser = require("cookie-parser");
 const expressSession = require("express-session");
 const checkAuth = require("./middlewares/check-auth");
@@ -14,6 +15,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(expressSession({ secret: "My Secret Key", resave: false, saveUninitialized: false }));
 app.use(mainSiteMiddleware);
+app.use(flash());
 
 app.use(express.static("public"));
 app.set("view engine", "ejs");
@@ -30,6 +32,9 @@ app.get("/", checkAuth, (req, res) => {
 app.get("/contact-us", async (req, res) => {
   res.render("contact-us");
 })
+app.post('/contact-us', (req, res) => {
+  res.redirect("contact-us")
+});
 app.get("/lakes", checkAuth, async (req, res) => {
   res.render("lakes");
 })

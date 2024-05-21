@@ -14,6 +14,9 @@ function handleFormSubmission(event) {
     if (name === '' || email === '' || message === '') {
         alert('Please fill in all fields.');
         event.preventDefault();
+    }else{
+         $('#contactForm').hide();
+         $('#successMessage').show();
     }
 }
   
@@ -33,7 +36,7 @@ function bindContactNavigation() {
     var contactLink = document.getElementById('contact-link');
     if (contactLink) {
         contactLink.addEventListener('click', function() {
-            window.location.href = './contact.html';
+            window.location.href = './contact-us.ejs';
         });
     }
 }

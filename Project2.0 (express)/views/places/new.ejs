@@ -1,14 +1,29 @@
 <div class="form-container">
     <h1>Add New Record</h1>
     <div class="form-box">
-        <form action="/places/new" method="post">
-            <label for="name">Name:</label>
-            <input type="text"  name="name" id="name"/> <br/>
-            <label for="landscape">Landscape:</label>
-            <input type="text"  name="landscape" id="landscape"/> <br/>
-            <label for="location">Location:</label>
-            <input type="text"  name="location" id="location"/> <br/>
-            <button type="submit" class="btn btn-dark">Add New Place</button>        
+        <% if (messages.error) { %>
+            <% messages.error.forEach(function(message) { %>
+                <div class="alert alert-danger"><%= message %></div>
+            <% }); %>
+        <% } %>
+        
+        <% if (messages.success) { %>
+            <div class="alert alert-success"><%= messages.success %></div>
+        <% } %>
+        <form action="/places/new" method="POST">
+            <div>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name">
+            </div>
+            <div>
+                <label for="landscape">Landscape:</label>
+                <input type="text" id="landscape" name="landscape">
+            </div>
+            <div>
+                <label for="location">Location:</label>
+                <input type="text" id="location" name="location">
+            </div>
+            <button type="submit" class="btn btn-dark">Add Place</button>
         </form>
     </div>
 </div>
