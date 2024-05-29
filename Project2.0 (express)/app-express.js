@@ -25,6 +25,7 @@ app.use(placesAPIRouter);
 
 app.use("/places", require("./routes/places"));
 app.use("/", require("./routes/auth"));
+app.use("/", require("./routes/search"));
 
 app.get("/", checkAuth, (req, res) => {
   res.render("homepage", { user: req.session.user });

@@ -1,0 +1,243 @@
+*{
+    
+    margin: 0px;
+    padding: 0px;
+    font-family:  serif;
+    /* 'Poppins', */
+    /* background: #F2D8CE; */
+    background: rgb(44, 43, 43);
+    color: white;
+}
+.carousel-item img{
+    object-fit: cover;
+    height: 30em;
+}
+.navbar{
+    display: flex;
+    align-items: right;
+}
+.logo{
+    width: 10em;
+    height: 3.3em;
+    padding: 0%;
+}
+
+/* .dropdown{
+    background: inherit;
+} */
+
+.navbar ul li{
+    list-style: none;
+    display: inline-block;
+    margin: 0 15px;
+}
+.nav-link {
+    text-decoration: none; 
+    color: inherit; 
+    cursor: pointer; 
+}
+.carousel-indicators {
+    top: 29em; 
+    left: 50%;
+    text-align: center;
+}
+.carousel-item img {
+    width: 100%;
+    height: 30em; 
+}
+.carousel-caption {
+    top: 27em;
+    left: 50%;
+    z-index: 10;
+    color: #fff; 
+}
+.contain2{
+    clear:both;
+    padding-top: 1em;
+}
+h1{
+    text-align: center;
+}
+#main{
+    text-align: center;
+}
+.cards {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  padding: 1.5em;
+  padding-left: 4em;
+}    
+.cards .card {
+  --normal-color: #d26969; /* Define a CSS variable for normal color */
+  --hover-color: #923050;  /* Define a CSS variable for hover color */  
+  background-color: var(--normal-color); 
+  display: flex;
+  padding: 0.5em;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  height: 200px;
+  width: 150px;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  transition: transform 400ms, background-color 400ms; /* Add transition for background-color */
+}   
+.cards .card p.tip {
+  font-size: 1em;
+  font-weight: 700;
+}    
+.cards .card p.second-text {
+  font-size: .7em;
+}   
+.cards .card:hover {
+  transform: scale(1.2, 1.2);
+  background-color: var(--hover-color); /* Change background color on hover */
+}  
+.hover {
+  transform: scale(1.2, 1.2);
+  z-index: 1;
+}
+
+footer {
+    padding: 60px 0;
+  }
+  .footer-links {
+    list-style-type: none;
+    padding: 0;
+  }
+  .footer-links li {
+    padding: 8px 0;
+  }
+  .footer-links li a {
+    color: white;
+    text-decoration: none;
+  }
+  .footer-links li a:hover {
+    text-decoration: underline;
+  }
+
+  .circle {    fill: #d26969;}
+  .circle-one{opacity: 0;}
+  .svg-stroke {
+    fill: transparent;
+    stroke-dasharray: 46.82, 93.64;
+    stroke-dashoffset: 46.82;
+    stroke: #d26969;
+    opacity: 1;
+  }
+  .svg-wrap .svg-stroke {
+    animation: stroke-start 1.6s linear, stroke-end 1.6s 0.8s linear infinite;
+  }
+  .svg-wrap .circle-one {
+    animation: dot-one 0s 0.8s, move-dot 1.6s 0.8s linear infinite;
+  }
+  .svg-wrap .circle-two,
+  .svg-wrap .circle-three {
+    animation: move-dot 1.6s 0.8s linear infinite;
+  }
+  @keyframes dot-one {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  @keyframes stroke-start {
+    50% {
+      stroke-dashoffset: 46.82;
+    }
+    100% {
+      stroke-dashoffset: 0;
+    }
+  }
+  @keyframes stroke-end {
+    50% {
+      stroke-dasharray: 46.82, 93.64;
+      stroke-dashoffset: 0;
+      transform: translateX(0);
+    }
+    100% {
+      stroke-dasharray: 0, 93.64;
+      stroke-dashoffset: -46.82;
+      transform: translateX(10px);
+    }
+  }
+  @keyframes move-dot {
+    50% {
+      transform: translateX(0);
+    }
+  
+    100% {
+      transform: translateX(10px);
+    }
+  }
+
+
+
+
+/* .contain3{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 45em;
+  margin: 0;
+}
+  .tooltip-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+.tooltip {
+    height: 45em;
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    background-color: #282828; 
+    color: #f1f1f1; 
+    padding: 1em 3em;
+    border-radius: 1em;
+}
+.tooltiptext {
+    visibility: hidden;
+    width: 200px;
+    background-color: #282828; 
+    color: #f1f1f1; 
+    text-align: center;
+    border-radius: 5px;
+    padding: 10px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    border-width: 8px;
+    border-style: solid;
+    border-color: #282828 transparent transparent transparent;
+    transform: translateX(-50%);
+}
+.tooltip.left .tooltiptext {
+    left: auto;
+    right: 130%;
+    transform: translateX(50%);
+}
+.tooltip.right .tooltiptext {
+    left: 130%;
+    transform: translateX(-50%);
+} */

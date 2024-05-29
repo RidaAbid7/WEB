@@ -13,27 +13,27 @@ router.post('/register', async (req, res) => {
     // Validation checks
     const { name, email, password } = req.body;
     if (!name || !email || !password) {
-        console.log('Validation error: One or more fields are empty.');
+        req.flash('error', 'One or more fields are empty.');
         return res.redirect('/register');
     }
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
-        console.log('Validation error: Invalid email format.');
+        req.flash('error', 'Invalid email format.');
         return res.redirect('/register');
     }
     try {
         // Check if the email already exists in the database
         let existingUser = await User.findOne({ email: email });
         if (existingUser) {
-            console.log('User with this email already exists.');
             req.flash('error', 'Email already exists. Please use a different email.');
             return res.redirect('/register');
         }
         let newUser = new User(req.body);
         await newUser.save();
+        req.flash('success', 'Registration successful. Please login.');
         res.redirect('/login');
     } catch (error) {
-        console.log('Error saving user:', error);
+        req.flash('error', 'There was an error saving the user.');
         res.redirect('/register');
     }
 });
