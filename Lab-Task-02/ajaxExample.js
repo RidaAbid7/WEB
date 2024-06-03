@@ -47,8 +47,8 @@ function handleFormSubmission(event) {
     
     // Fetching values from the form
     let storyId = $("#storyId").val(); // Use a hidden input for story ID
-    var title = $("#title").val();
-    var content = $("#content").val();
+    var title = $("#createTitle").val();
+    var content = $("#createContent").val();
 
     // Determine the method based on whether a storyId exists
     let method = storyId ? "PUT" : "POST";
@@ -58,15 +58,16 @@ function handleFormSubmission(event) {
     $.ajax({
         url: url,
         method: method,
-        data: { title, content },
+        data: JSON.stringify({ title: title, content: content }), // Use JSON.stringify to send data
+        contentType: "application/json", // Specify content type
         success: function() {
             displayStories();
             
-            $("#title").val("");
-            $("#content").val("");
+            $("#createTitle").val("");
+            $("#createContent").val("");
             $("#storyId").val(""); 
             
-            $("#createBtn").text("Create Story");
+            $("#createBtn").text("Create");
 
             // Hide the clear button
             $("#clearBtn").hide();
@@ -84,10 +85,10 @@ function editStory() {
         url: `https://usmanlive.com/wp-json/api/stories/${storyId}`,
         method: "GET",
         success: function(data) {
-            $("#title").val(data.title);
-            $("#content").val(data.content);
+            $("#createTitle").val(data.title);
+            $("#createContent").val(data.content);
             $("#storyId").val(data.id);
-            $("#createBtn").text("Update Story");
+            $("#createBtn").text("Update");
             $("#clearBtn").show(); // Show the clear button here
         },
         error: function(error) {
@@ -107,9 +108,13 @@ $(document).ready(function() {
     // Example of a clear function to reset the form, assuming you have a clear button
     $("#clearBtn").click(function(e) {
         e.preventDefault();
-        $("#title").val("");
-        $("#content").val("");
+        $("#createTitle").val("");
+        $("#createContent").val("");
         $("#storyId").val("");
-        $("#createBtn").text("Create Story");
+        $("#createBtn").text("Create");
+        $("#clearBtn").hide(); // Hide the clear button
     });
+
+    // Hide the clear button initially
+    $("#clearBtn").hide();
 });
